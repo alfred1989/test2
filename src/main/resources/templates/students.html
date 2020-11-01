@@ -1,5 +1,6 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org "><head>
 <head>
 <link href="/webjars/bootstrap/4.3.1/css/bootstrap.css" rel="stylesheet" />
 <script type="text/javascript" src="/webjars/jquery/3.4.1/jquery.min.js"></script>
@@ -71,14 +72,14 @@
 </tr>
 </thead>
 <tbody>
-<tr th:each="student:${students}">
-<td th:text="${student.Id}">Id</td>
-<td th:text="${student.name}">Name</td>
-<td th:text="${student.department}">Department</td>
-<td th:text="${student.updatedBy}">Updated By</td>
-<td th:text="${student.updatedOn}">Updated On</td>
-<td><a th:href="@{/students/getOne/(Id=${student.Id})}" id="editButton" class="btn btn-warning">Edit</a> </td>
-<td><a th:href="@{/students/delete/(Id=${student.Id})}" id="deleteButton" class="btn btn-danger">Delete</a> </td>
+
+<tr th:each="businessess:${businesses}">
+<td th:text="${businessess.id}">Id</td>
+<td th:text="${businessess.name}">Name</td>
+<td th:text="${businessess.email}">Department</td>
+
+<td><a th:href="@{/businesses/getOne/(Id=${businessess.Id})}" id="editButton" class="btn btn-warning">Edit</a> </td>
+<td><a th:href="@{/businesses/delete/(Id=${businessess.Id})}" id="deleteButton" class="btn btn-danger">Delete</a> </td>
 </tr>
 </tbody>
 </table>
@@ -86,7 +87,7 @@
 
 
 <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
- <form th:action="@{/students/addNew}" method="post">
+ <form th:action="@{/businesses/addNew}" method="post">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -132,7 +133,7 @@
 
 
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
- <form th:action="@{/students/update}" method="put">
+ <form th:action="@{/businesses/update}" method="put">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
